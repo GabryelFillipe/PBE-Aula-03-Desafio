@@ -1,0 +1,33 @@
+/***********************************************************************************
+ * Objetivo: Arquivo responsaável por calcular os juros compostos dos produtos
+ * Autor:Gabryel Fillipe
+ * Data:05/08/2025
+ * Versão:1.0
+ **********************************************************************************/
+
+// m= p x (1 + r/n)^n x t
+
+// é o principal (capital inicial).
+// 𝑟 é a taxa de juros anual (em decimal).
+// 𝑛 é o número de vezes que os juros são compostos por ano.
+// 𝑡 é o tempo em anos.
+
+function calcularMontante (valor1,valor2,valor3,valor4) {
+
+    let capitalInicial = valor1
+    let taxaJuros = valor2
+    let parcelasPorAno = valor3
+    let periodo = valor4
+
+    console.log(Math.pow(1.24, 120))
+
+    let montante = Number(capitalInicial) * ((1 + (Number(taxaJuros)/Number(parcelasPorAno))) **  (Number(parcelasPorAno) *  Number(periodo)))
+
+    
+
+    return Number(montante)
+}
+console.log(calcularMontante('10', '1.2', '5', '24'))
+module.exports = {
+    calcularMontante
+}
