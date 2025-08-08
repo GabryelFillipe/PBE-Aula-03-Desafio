@@ -17,17 +17,23 @@ function calcularMontante (valor1,valor2,valor3,valor4) {
     let capitalInicial = valor1
     let taxaJuros = valor2
     let parcelasPorAno = valor3
-    let periodo = valor4
+    let periodoEmMeses = valor4
 
-    console.log(Math.pow(1.24, 120))
+    //console.log(Math.pow(1.24, 120))
+    //Converter taxa para porcentagem
+    let taxaJurosPorcentagem = taxaJuros/100
 
-    let montante = Number(capitalInicial) * ((1 + (Number(taxaJuros)/Number(parcelasPorAno))) **  (Number(parcelasPorAno) *  Number(periodo)))
+    // Converter o período para anos
+    let periodoEmAnos = periodoEmMeses / 12; 
+
+    //Aplicar a fórmula correta com o expoente ajustado
+    let montante = capitalInicial * (1 + taxaJurosPorcentagem / parcelasPorAno) ** (parcelasPorAno * periodoEmAnos);
 
     
 
-    return Number(montante)
+    return Number(montante).toFixed(2)
 }
-console.log(calcularMontante('10', '1.2', '5', '24'))
+
 module.exports = {
     calcularMontante
 }
